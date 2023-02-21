@@ -952,21 +952,22 @@ header .links ul li:hover::after{
 }
 #our-skills .content .skills .progress .progressbar .innerprobar{
     display: flex;
-    width: 50%;
+    width: 0%;
     height: 100%;
     background-color: var(--mainColor);
-    z-index: 100;
+    transition: all 0.5s;
 }
 #our-skills .content .skills .progress .progressbar::before{
-    content: "value";
+    content: attr(data-value)"%";
     position: absolute;
     top: -35px;
     padding:2.5px;
     border: 1px solid #cecece;
     border-radius: 5px;
-    left: 50%;
+    left: var(--left, 0);
     transform: translateX(-50%);
     color: var(--mainColor);
+    transition: all 0.5s;
 }
 /* =============== End Our Skills =============== */
 
