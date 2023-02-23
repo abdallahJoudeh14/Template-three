@@ -13,13 +13,15 @@ let started = false;
 // adding animation on scrolling into progress bars
 window.addEventListener("scroll", () => {
     progressbars.forEach(progress => {
-        if (window.scrollY >= skillsSection.offsetTop) {
+        if (window.scrollY >= skillsSection.offsetTop - 200) {
             progress.firstElementChild.style.width = `${progress.dataset.value}%`;
+            progress.style.setProperty("--opacity", `1`);
             progress.style.setProperty("--left", `${progress.dataset.value}%`);
+
         }
     });
 
-    if (window.scrollY >= stateSection.offsetTop) {
+    if (window.scrollY >= stateSection.offsetTop - 150) {
         if (!started) {
             stats.forEach(state => {
 

@@ -955,7 +955,7 @@ header .links ul li:hover::after{
     width: 0%;
     height: 100%;
     background-color: var(--mainColor);
-    transition: all 0.5s;
+    transition: all 0.7s;
 }
 #our-skills .content .skills .progress .progressbar::before{
     content: attr(data-value)"%";
@@ -967,7 +967,8 @@ header .links ul li:hover::after{
     left: var(--left, 0);
     transform: translateX(-50%);
     color: var(--mainColor);
-    transition: all 0.5s;
+    transition: all 0.7s;
+    opacity: var(--opacity,0);
 }
 /* =============== End Our Skills =============== */
 
