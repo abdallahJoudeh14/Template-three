@@ -21,7 +21,7 @@ window.addEventListener("scroll", () => {
         }
     });
 
-    if (window.scrollY >= stateSection.offsetTop - 150) {
+    if (window.scrollY >= stateSection.offsetTop - 200) {
         if (!started) {
             stats.forEach(state => {
 
@@ -39,23 +39,27 @@ window.addEventListener("scroll", () => {
     }
 });
 
-// adding animation on countdown
 
-let eventTime = new Date("3/1/2023").getTime()
+// adding countdown
 
+let eventTime = new Date("3/1/2023 0:0:0").getTime();
 let countDown = setInterval(() => {
+
     let dateNow = new Date().getTime();
     let differentDate = eventTime - dateNow;
-    days.textContent = (differentDate / 1000 / 60 / 60 / 24).toFixed();
-    hours.textContent = ((differentDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toFixed();
-    minutes.textContent = (((differentDate % (1000 * 60 * 60)) / (1000 * 60))).toFixed().padStart(2, "0");
-    seconds.textContent = (((differentDate % (1000 * 60)) / (1000))).toFixed().padStart(2, "0");
-    if (differentDate === 0) {
+    if (Math.floor(differentDate / 1000) <= 0) {
         clearInterval(countDown);
+        days.textContent = "00";
+        hours.textContent = "00";
+        minutes.textContent = "00";
+        seconds.textContent = "00";
+    }
+    else {
+        days.textContent = (Math.floor(differentDate / (1000 * 60 * 60 * 24))).toString();
+        hours.textContent = (Math.floor((differentDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).toString();
+        minutes.textContent = (Math.floor((differentDate % (1000 * 60 * 60)) / (1000 * 60))).toString().padStart(2, "0");
+        seconds.textContent = (Math.floor((differentDate % (1000 * 60)) / (1000))).toString().padStart(2, "0");
     }
 
 }, 1000);
-
-
-
 
